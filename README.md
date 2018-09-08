@@ -8,7 +8,7 @@
 
 **License**:
 
-[The Unlicense](LICENSE)
+- [The Unlicense](LICENSE)
 
 ## Brief
 
