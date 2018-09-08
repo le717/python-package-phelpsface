@@ -57,7 +57,7 @@ Successfully installed setuptools-x.y.z
 
 ## `setup.py`
 
-Now we come to the core of this documentation: `./setup.py`. We will use this script to build a wheel. This file is where all the metadata is defined, be it required or recommended. We will only cover the most basic information needed to build a wheel. If you want to get into advanced usage, refer to the [official documentation](#additional-resources).
+Now we come to the core of this documentation: `./setup.py`. We will use this script to build a wheel. This file is where all the metadata is defined, be it required or recommended. We will only cover the most basic steps needed to build a wheel. If you want to get into advanced usage, refer to the [official documentation](#additional-resources).
 
 Let us open the file and see what it contains.
 
@@ -139,7 +139,7 @@ long_description=long_description,
 long_description_content_type="text/markdown",
 ```
 
-Recall earlier that we read the contents of the `./README.md` file into a variable called `long_description`. Here, we use that content as the package's longer description. Because the file is written using [Markdown](https://daringfireball.net/projects/markdown/), we need to tell this to `setuptools` so it will handle it correctly.
+Recall earlier that we read the contents of the `./README.md` file into a variable called `long_description`. Here, we use that content as the package's longer description. Because the file is written using [Markdown](https://daringfireball.net/projects/markdown/), we need to specify this so it will be handled correctly.
 
 ```python
 author="Caleb Ely",
