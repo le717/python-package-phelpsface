@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-__all__ = ("as_ansi", "as_ascii", "as_url", "in_browser")
+__all__ = ["as_ansi", "as_ascii", "as_url", "in_browser"]
 
 
 def as_url() -> str:

@@ -57,7 +57,7 @@ Successfully installed setuptools-x.y.z
 
 ## `setup.py`
 
-Now we come to the core of this documentation: `./setup.py`. We will use this script to build a wheel. This file is where all the metadata is defined, be it required or recommended. We will only cover the most basic information needed to build a wheel. If you want to get into the advanced usage, refer to the [official documentation](#additional-resources).
+Now we come to the core of this documentation: `./setup.py`. We will use this script to build a wheel. This file is where all the metadata is defined, be it required or recommended. We will only cover the most basic information needed to build a wheel. If you want to get into advanced usage, refer to the [official documentation](#additional-resources).
 
 Let us open the file and see what it contains.
 
@@ -74,7 +74,7 @@ with open("./README.md", "rt", encoding="utf-8") as f:
 
 setup(
     name="phelpsface",
-    version="1.0.0",
+    version="1.0.1",
     description="#PhelpsFace",
     url="https://github.com/le717/python-package-phelpsface",
     long_description=long_description,
@@ -90,10 +90,10 @@ setup(
 That may look like a lot of stuff, but it really is not! Let us break it down into chunks.
 
 ```python
-from setuptools import setup
+from setuptools import setup, find_packages
 ```
 
-This allows us to us to use the `setup` function from the `setuptools` package we installed earlier. This will perform all the magic of creating a wheel for us. All we have to do is feed it our package information.
+This allows us to us to use the `setup` and `find_packages` functions from the `setuptools` package we installed earlier. These will perform do the dirty work of creating a wheel for us.
 
 ```python
 # Get the package's longer description
@@ -106,15 +106,15 @@ Here, we are reading the `./README.md` file into a variable called `long_descrip
 
 ### Defining the Metadata
 
-We will detour for just a moment to list and collect the information we need to create a wheel. To create a wheel, `setup` needs certain information. However, what information is that?
+We will detour for just a moment to list and collect the package metadata to give to `setup` so it can create a wheel.
 
-We require the following information to create a wheel:
+The following metadata is required to create a wheel:
 
 - package name
 - package version (in the format `major.minor.patch`)
 - the file(s) that contains our code
 
-Additionally, the following is a partial list of recommended information to include. We will be including these plus a little bit more in our script.
+Additionally, the following is a partial list of recommended metadata. We will be including these plus a little bit more.
 
 - summary
 - longer description
@@ -127,12 +127,12 @@ Now that we have defined what information we needed, let's continue looking at `
 
 ```python
 name="phelpsface",
-version="1.0.0",
+version="1.0.1",
 description="#PhelpsFace",
 url="https://github.com/le717/python-package-phelpsface",
 ```
 
-In this block, we define our package name to be `phelpsface`, version it as `1.0.0`, write a brief summary (rather oddly called `description`), and provide the URL to the GitHub repository where the source control lives. So far, straightforward.
+In this block, we define our package name to be `phelpsface`, version it as `1.0.1`, write a brief summary (rather oddly called `description`), and provide the URL to the GitHub repository where the source control lives. So far, straightforward.
 
 ```python
 long_description=long_description,
@@ -158,7 +158,7 @@ This is the most complicated part of the script, and as you will shortly see, it
 
 - `python_requires=">=3.5"`: This package can only be installed on Python installations that are of version 3.5.0 or higher.
 - `package_dir={"": "phelpsface"}`: Recall that our code is located at `./phelpsface/phelpsface.py`. When we build our wheel, we want to allow the user to run `import phelpsface` to use our code. Without this line, `setuptools` would not find the code. The dictionary key is the location that we want our code to exist. Using `""` as the key means we want it to be at the top-level. The value is the location of our code, in our case, `"phelpsface"`. There is no need to give any path separators.
-- `py_modules=find_packages()`: `setuptools` contains a function called `find_packages()` that looks for a generates a list of files that contains your code is contained in. By calling this method, we do not have to worry about telling `setuptools` how to find our code. It finds it for us. Alternatively, if we did not want to call this function, we can specify the individual files in a list. For example, because our code lives in `phelpsface.py`, we would specify `phelpsface` without the file extension.
+- `py_modules=find_packages()`: `setuptools` contains a function called `find_packages()` that generates a list of files that contains your code. By calling this method, we do not have to worry about specifying the individual files and possibly missing one. Alternatively, if we did not want to call this function, we can specify the individual files in a list. For example, because our code lives in `phelpsface.py`, we would specify `phelpsface` without the file extension. This line would then read as so: `py_modules=["phelpsface"]`.
 
 ## Building a Wheel
 
@@ -179,17 +179,17 @@ $ ls -la ./dist
 total 12
 drwxr-xr-x 1 Caleb 1049089    0 Sep  7 15:17 ./
 drwxr-xr-x 1 Caleb 1049089    0 Sep  7 15:17 ../
--rw-r--r-- 1 Caleb 1049089 8022 Sep  7 15:28 phelpsface-1.0.0-py3-none-any.whl
+-rw-r--r-- 1 Caleb 1049089 8022 Sep  7 15:28 phelpsface-1.0.1-py3-none-any.whl
 ```
 
-The only file in the directory, `phelpsface-1.0.0-py3-none-any.whl` is our generated wheel. If everything in `./setup.py` was defined correctly, then you have successfully created a working Python wheel of #PhelpsFace! 👍
+The only file in the directory, `phelpsface-1.0.1-py3-none-any.whl` is our generated wheel. If everything in `./setup.py` was defined correctly, then you have successfully created a working Python wheel of #PhelpsFace! 👍
 
 ## Additional Resources
 
 We have only scratched the surface on Python package generation. There is a whole metric ton of additional information available on the Internet. If you would like to learn more, the following are some great resources to consult.
 
-- [Packaging and distributing projects](https://packaging.python.org/guides/distributing-packages-using-setuptools/)
-- [Packaging Python Projects](https://packaging.python.org/tutorials/packaging-projects/)
-- [Building and Distributing Packages with Setuptools](https://setuptools.readthedocs.io/en/latest/setuptools.html)
-- [How To Package Your Python Code](https://python-packaging.readthedocs.io/en/latest/index.html)
+- [Packaging and distributing projects - Python Packaging User Guide](https://packaging.python.org/guides/distributing-packages-using-setuptools/)
+- [Packaging Python Projects - Python Packaging User Guide](https://packaging.python.org/tutorials/packaging-projects/)
+- [Building and Distributing Packages with Setuptools - setuptools documentation](https://setuptools.readthedocs.io/en/latest/setuptools.html)
+- [How To Package Your Python Code - Python Packaging Tutorial](https://python-packaging.readthedocs.io/en/latest/index.html)
 - [Sample Python Package - Python Packaging Authority](https://github.com/pypa/sampleproject)
