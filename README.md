@@ -62,6 +62,7 @@ Now we come to the core of this documentation: `./setup.py`. We will use this sc
 Let us open the file and see what it contains.
 
 ```python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
@@ -74,7 +75,7 @@ with open("./README.md", "rt", encoding="utf-8") as f:
 
 setup(
     name="phelpsface",
-    version="1.0.1",
+    version="1.0.2",
     description="#PhelpsFace",
     url="https://github.com/le717/python-package-phelpsface",
     long_description=long_description,
@@ -118,7 +119,7 @@ Additionally, the following is a partial list of recommended metadata. We will b
 
 - summary
 - longer description
-- project URL (GitHub, GitLab, VSTS, etc.)
+- project URL (GitHub, GitLab, Azure DevOps, etc.)
 - maintainer name and email
 
 ### `setup()`
@@ -127,12 +128,12 @@ Now that we have defined what information we needed, let's continue looking at `
 
 ```python
 name="phelpsface",
-version="1.0.1",
+version="1.0.2",
 description="#PhelpsFace",
 url="https://github.com/le717/python-package-phelpsface",
 ```
 
-In this block, we define our package name to be `phelpsface`, version it as `1.0.1`, write a brief summary (rather oddly called `description`), and provide the URL to the GitHub repository where the source control lives. So far, straightforward.
+In this block, we define our package name to be `phelpsface`, version it as `1.0.2`, write a brief summary (rather oddly called `description`), and provide the URL to the GitHub repository where the source control lives. So far, straightforward.
 
 ```python
 long_description=long_description,
@@ -179,10 +180,10 @@ $ ls -la ./dist
 total 12
 drwxr-xr-x 1 Caleb 1049089    0 Sep  7 15:17 ./
 drwxr-xr-x 1 Caleb 1049089    0 Sep  7 15:17 ../
--rw-r--r-- 1 Caleb 1049089 8022 Sep  7 15:28 phelpsface-1.0.1-py3-none-any.whl
+-rw-r--r-- 1 Caleb 1049089 8022 Sep  7 15:28 phelpsface-1.0.2-py3-none-any.whl
 ```
 
-The only file in the directory, `phelpsface-1.0.1-py3-none-any.whl` is our generated wheel. If everything in `./setup.py` was defined correctly, then you have successfully created a working Python wheel of #PhelpsFace! 👍
+The only file in the directory, `phelpsface-1.0.2-py3-none-any.whl` is our generated wheel. If everything in `./setup.py` was defined correctly, then you have successfully created a working Python wheel of #PhelpsFace! 👍
 
 ## Additional Resources
 

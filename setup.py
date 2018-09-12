@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
@@ -10,7 +11,7 @@ with open("./README.md", "rt", encoding="utf-8") as f:
 
 setup(
     name="phelpsface",
-    version="1.0.1",
+    version="1.0.2",
     description="#PhelpsFace",
     url="https://github.com/le717/python-package-phelpsface",
     long_description=long_description,
