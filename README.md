@@ -161,6 +161,10 @@ This is the most complicated part of the script, and as you will shortly see, it
 - `package_dir={"": "phelpsface"}`: Recall that our code is located at `./phelpsface/phelpsface.py`. When we build our wheel, we want to allow the user to run `import phelpsface` to use our code. Without this line, `setuptools` would not find the code. The dictionary key is the location that we want our code to exist. Using `""` as the key means we want it to be at the top-level. The value is the location of our code, in our case, `"phelpsface"`. There is no need to give any path separators.
 - `py_modules=find_packages()`: `setuptools` contains a function called `find_packages()` that generates a list of files that contains your code. By calling this method, we do not have to worry about specifying the individual files and possibly missing one. Alternatively, if we did not want to call this function, we can specify the individual files in a list. For example, because our code lives in `phelpsface.py`, we would specify `phelpsface` without the file extension. This line would then read as so: `py_modules=["phelpsface"]`.
 
+### `setup.cfg`
+
+TODO
+
 ## Building a Wheel
 
 Now we that we have defined all our metadata, we need to run the following command in a terminal:
