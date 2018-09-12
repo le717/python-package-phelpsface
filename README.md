@@ -161,9 +161,17 @@ This is the most complicated part of the script, and as you will shortly see, it
 - `package_dir={"": "phelpsface"}`: Recall that our code is located at `./phelpsface/phelpsface.py`. When we build our wheel, we want to allow the user to run `import phelpsface` to use our code. Without this line, `setuptools` would not find the code. The dictionary key is the location that we want our code to exist. Using `""` as the key means we want it to be at the top-level. The value is the location of our code, in our case, `"phelpsface"`. There is no need to give any path separators.
 - `py_modules=find_packages()`: `setuptools` contains a function called `find_packages()` that generates a list of files that contains your code. By calling this method, we do not have to worry about specifying the individual files and possibly missing one. Alternatively, if we did not want to call this function, we can specify the individual files in a list. For example, because our code lives in `phelpsface.py`, we would specify `phelpsface` without the file extension. This line would then read as so: `py_modules=["phelpsface"]`.
 
-### `setup.cfg`
+## `setup.cfg`
 
-TODO
+We have one more file to take a look at before we can build our wheel: `./setup.cfg`. In a basic form, this file is _much_ simpler than `./setup.py`.
+
+```ini
+[metadata]
+# Include the package license in the final wheel file
+license_file = LICENSE
+```
+
+As the comment says, all we are doing in this file is telling `setuptools` to include the package's license file in the final wheel. We do this by providing the `license_file` key with the appropriate file name, in our case, [`LICENSE`](LICENSE).
 
 ## Building a Wheel
 
