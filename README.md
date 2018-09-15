@@ -44,7 +44,7 @@ To ease the distribution and installation of a Python library, the maintainer(s)
 
 To start, we need some Python code to serve as our library. We will use the `./phelpsface/phelpsface.py` module for this purpose. If you open this file, you will see a few methods providing an image of [#PhelpsFace](https://knowyourmeme.com/memes/phelpsface-angry-michael-phelps) in various formats. There is no need to edit this file but you are free to do so if you wish.
 
-Next, we need to install Python and the packages required to build a wheel. Python versions 3.5.0 and higher should work. Start by installing [Python](https://www.python.org) if needed, then installing the [`setuptools`](https://github.com/pypa/setuptools) and [`wheel`](https://pypi.org/project/wheel/) package by running the following command in a terminal:
+Next, we need to install Python and the packages required to build a wheel. Python versions 3.5.0 and higher should work. Start by installing [Python](https://www.python.org) if needed, then installing the [`setuptools`](https://github.com/pypa/setuptools) and [`wheel`](https://pypi.org/project/wheel/) packages by running the following command in a terminal:
 
 ```shell
 $ pip install setuptools wheel
